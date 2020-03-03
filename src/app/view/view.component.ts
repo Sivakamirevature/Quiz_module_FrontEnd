@@ -18,10 +18,8 @@ export class ViewComponent implements OnInit {
       this.object=res;
     });
   }
-  public myFunc() {
-    console.log("Hai I am clicked");
+  public myFunc(s: any) : void{
+    console.log(s);
   }
-
-
 }
 

@@ -8,10 +8,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestserviceService } from './testservice.service';
 import { ViewComponent } from './view/view.component';
 
+import { CreateQuizComponent } from './create-quiz/create-quiz.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ViewComponent
+    ViewComponent,
+    CreateQuizComponent
   ],
   imports: [
     BrowserModule,
