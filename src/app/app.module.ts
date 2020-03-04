@@ -9,12 +9,14 @@ import { TestserviceService } from './testservice.service';
 import { ViewComponent } from './view/view.component';
 
 import { CreateQuizComponent } from './create-quiz/create-quiz.component';
+import { QuizInfoComponent } from './quiz-info/quiz-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewComponent,
-    CreateQuizComponent
+    CreateQuizComponent,
+    QuizInfoComponent
   ],
   imports: [
     BrowserModule,

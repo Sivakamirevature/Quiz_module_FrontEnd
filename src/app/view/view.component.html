@@ -1,24 +1,30 @@
 <div><button align = "right" >Create New</button>
     </div>
-<div><table border=5>
-   <thead> <tr><th>Quiz Name</th>
+    <div>
+        
+ <div><table border=5>
+   <thead> <tr>
+    <th>S.No</th>   
+    <th>Quiz Name</th>
     <th>Version</th>
     <th>Category</th>
     <th>Level</th>
     <th>Created By</th>
     <th>Status</th>
     <th>Action</th></tr></thead>
-<tbody *ngFor="let obj of object"> 
-   <tr>
-        <td>{{obj.quiz_name}}</td>
+<tbody > 
+   <tr *ngFor="let obj of object; let i=index">
+       <td>{{i+1}}</td>
+        <td><button (click) = "SingleQuzInfo(obj.quiz_id)">{{obj.quiz_name}}</button></td>
         <td>{{obj.modified_count}}</td>
         <td>{{obj.category.categoryName}}</td>
         <td>{{obj.level.levelName}}</td>
         <td>{{obj.created_by}}</td>
-        <td>{{obj.status}}</td>
+        <div *ngIf="obj.status; else elseBlock"><td><button style=background-color:green>Active</button></td></div>  
+        <ng-template #elseBlock><td><button style=background-color:goldenrod>inactive</button></td></ng-template>  
         <td><span><button><img src="assets/Images/edit.jpg" alt="Edit"  height=30 width=30 ></button>
-                 <button><img src="assets/Images/clone.png" alt="delete"  height=30 width=30 (click)="myFunc('hai')"></button>
-                 <button><img src="assets/Images/delete.png" alt="delete"  height=30 width=30 ></button>
+                 <button><img src="assets/Images/clone.png" alt="delete"  height=30 width=30></button>
+                 <button><img src="assets/Images/delete.png" alt="delete"  height=30 width=30 (click)="deleteQuiz(obj.quiz_id)"></button>
         </span></td>
     </tr>
 </tbody>

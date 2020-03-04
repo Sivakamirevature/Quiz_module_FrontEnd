@@ -11,9 +11,12 @@ export class TestserviceService {
   view(){
     return this.http.get("http://localhost:8080/Quizzes/getAllQuizzes");
   }
-  delete(){
-    return this.http.delete("http://localhost:8080/Quizzes/doDeleteByID/{id}")
+  deleteQuiz(id: number){
+    console.log("id2: "+id)
+    return this.http.delete("http://localhost:8080/Quizzes/doDeleteByID/"+id);
   }
 
-  
+  SingleQuzInfo(quiz_id:number){
+    return this.http.get("localhost:8080/Quizzes/getQuizByID/"+quiz_id);
+  }
 }
