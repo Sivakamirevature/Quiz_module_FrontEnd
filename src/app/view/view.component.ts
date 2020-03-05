@@ -37,17 +37,25 @@ export class ViewComponent implements OnInit {
           return console.log(error);
         });
   }
-  // cloneQuiz(id: number){
-  //   this.serviceClass.cloneQuiz(id).subscribe(data=>{console.log(data)})
-  // }
-
+ 
   SingleQuzInfo(quiz_id:number){
     this.serviceClass.SingleQuzInfo(quiz_id).subscribe(data => {
       console.log(data);
-      
     },
     error => {
       return console.log(error);
     });
   }
+
+  activeDeactive(quiz_id:number){
+    this.serviceClass.activeDeactive(quiz_id,this.object).subscribe(data => {console.log(data);
+      this.view();
+      alert("Activation Mode Changed");
+    console.log(this.view());
+  },
+    error => {
+      return console.log(error);
+    });
+  }
+
 }

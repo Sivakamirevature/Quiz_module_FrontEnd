@@ -15,13 +15,14 @@
 <tbody > 
    <tr *ngFor="let obj of object; let i=index">
        <td>{{i+1}}</td>
-        <td><button (click) = "SingleQuzInfo(obj.quiz_id)">{{obj.quiz_name}}</button></td>
+        <td><a  routerLink="quiz-info">{{obj.quiz_name}}</a></td>
         <td>{{obj.modified_count}}</td>
         <td>{{obj.category.categoryName}}</td>
         <td>{{obj.level.levelName}}</td>
         <td>{{obj.created_by}}</td>
-        <div *ngIf="obj.status; else elseBlock"><td><button style=background-color:green>Active</button></td></div>  
-        <ng-template #elseBlock><td><button style=background-color:goldenrod>inactive</button></td></ng-template>  
+         <div *ngIf="obj.status; else elseBlock"><td><button style=background-color:green (click)="activeDeactive(obj.quiz_id)">Active</button></td></div>  
+        <ng-template #elseBlock><td><button style=background-color:goldenrod (click)="activeDeactive(obj.quiz_id)">inactive</button></td></ng-template>   
+       
         <td><span><button><img src="assets/Images/edit.jpg" alt="Edit"  height=30 width=30 ></button>
                  <button><img src="assets/Images/clone.png" alt="delete"  height=30 width=30></button>
                  <button><img src="assets/Images/delete.png" alt="delete"  height=30 width=30 (click)="deleteQuiz(obj.quiz_id)"></button>

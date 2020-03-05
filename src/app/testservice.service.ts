@@ -17,6 +17,11 @@ export class TestserviceService {
   }
 
   SingleQuzInfo(quiz_id:number){
-    return this.http.get("localhost:8080/Quizzes/getQuizByID/"+quiz_id);
+    return this.http.get("http://localhost:8080/Quizzes/getQuizByID/"+quiz_id);
+  }
+
+  activeDeactive(id: number,data:any)
+  {
+    return this.http.put("http://localhost:8080/Quizzes/doActiveDeactiveQuiz/"+id,data);
   }
 }
